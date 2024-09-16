@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from 'react-hook-form';
-import { registerUser } from '../features/auth/registerSlice';
+import { registerUser } from '../features/auth/authSlice';
 import { useNavigate } from 'react-router-dom';
 
 const Register = () => {
@@ -9,10 +9,9 @@ const Register = () => {
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const { loading, error } = useSelector((state) => state.register);
+  const { loading, error } = useSelector((state) => state.auth);
 
   const onSubmit = (data) => {
-    //console.log(data);
     dispatch(registerUser(data)).then((action) => {
       if (registerUser.fulfilled.match(action)) {
         navigate('/'); // Redirect to login on successful registration

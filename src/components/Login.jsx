@@ -66,7 +66,7 @@ const Login = () => {
           </button>
           <div className="text-center mx-auto">Not Register,    
             <a href="/register" className="text-blue-700 "> click here to Register</a>
-        </div>
+          </div>
         </form>
       </div>
     </div>

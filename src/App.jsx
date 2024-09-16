@@ -23,6 +23,8 @@ export default App;
 
 
 
+
+
 // import React from 'react'
 // import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
@@ -30,17 +32,13 @@ export default App;
 // const router = createBrowserRouter([
 //   {
 //     path: "/",
-//     element: <Login />
+//     element: {token ? <Navigate to="/dashboard" /> : <Login />}
 //   },
 //   {
-//     path: "/create",
-//     element: <Create />
+//     path: "/register",
+//     element: <Register />
 //   },
-//   {
-//     path: "/edit/:id",
-//     element: <Update />
-//   },
- 
+
 
 // ]);
 
