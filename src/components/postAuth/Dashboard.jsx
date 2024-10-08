@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { logout } from '../features/auth/authSlice';
+import { logout } from '../../features/auth/authSlice';
 import { useNavigate, Outlet, Link } from 'react-router-dom';
 
 const Dashboard = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { user } = useSelector((state) => state.auth);
+  const { user} = useSelector((state) => state.auth);
+  
 
   const handleLogout = () => {
     dispatch(logout());
@@ -35,32 +36,36 @@ const Dashboard = () => {
           <ul className="space-y-4">
             <li>
             <Link
+                to=""
+                className="block py-2 px-4 rounded hover:bg-gray-600 transition"
+            >
+              DASHBOARD
+            </Link>
+            <Link
                 to="changepassword"
                 className="block py-2 px-4 rounded hover:bg-gray-600 transition"
               >
                 Change password
               </Link>
               <Link
-                to="profile"
+                to="pictureupload"
                 className="block py-2 px-4 rounded hover:bg-gray-600 transition"
               >
-                Profile
+                Upload Profile Picture
+              </Link>
+              <Link
+                to="profileupdate"
+                className="block py-2 px-4 rounded hover:bg-gray-600 transition"
+              >
+                update profile
               </Link>
             </li>
             <li>
               <Link
-                to="settings"
+                to="addschool"
                 className="block py-2 px-4 rounded hover:bg-gray-600 transition"
               >
-                Settings
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="analytics"
-                className="block py-2 px-4 rounded hover:bg-gray-600 transition"
-              >
-                Analytics
+                Add School
               </Link>
             </li>
           </ul>

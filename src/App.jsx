@@ -1,13 +1,16 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Register from './components/Register';
-import Login from './components/Login';
-import ActivateAccount from './components/ActivateAccount';
-import Dashboard from './components/Dashboard';
+import Register from './components/preAuth/Register';
+import Login from './components/preAuth/Login';
+import ActivateAccount from './components/preAuth/ActivateAccount';
+import Dashboard from './components/postAuth/Dashboard';
 import ProtectedRoute from './utils/ProtectedRoute';
-import Profile from './components/Profile';
-import Settings from './components/Settings';
-import Analytics from './components/Analytics';
-import ChangePassword from './components/ChangePassword';
+import ChangePasswordForm from './components/postAuth/ChangePasswordForm';
+import RequestResetCodeForm from './components/preAuth/RequestResetCodeForm';
+import RequestPasswordForm from './components/preAuth/RequestPasswordForm';
+import ProfilePictureUpload from './components/postAuth/ProfilePictureUpload';
+// import AddSchool from './school/AddSchool';
+import AddSchool from './addschool/AddSchool';
+import ProfileUpdate from './components/postAuth/ProfileUpdate';
 
 function App() {
   return (
@@ -16,7 +19,10 @@ function App() {
         <Route path="/register" element={<Register />} />
         <Route path="/" element={<Login />} />
         <Route path="/activate" element={<ActivateAccount />} />
-        
+        <Route path="/requestCode" element={<RequestResetCodeForm />} />
+        <Route path="/requestForm" element={<RequestPasswordForm />} />
+
+
         {/* Protected Dashboard route with nested routes */}
         <Route 
           path="/dashboard" 
@@ -27,10 +33,10 @@ function App() {
           }
         >
           {/* Nested routes inside dashboard */}
-          <Route path="changepassword" element={<ChangePassword />} />
-          <Route path="profile" element={<Profile />} />
-          <Route path="settings" element={<Settings />} />
-          <Route path="analytics" element={<Analytics />} />
+          <Route path="changepassword" element={<ChangePasswordForm />} />
+          <Route path="pictureupload" element={<ProfilePictureUpload />} />
+          <Route path="profileupdate" element={<ProfileUpdate />} />
+          <Route path="addschool" element={<AddSchool />} />
         </Route>
       </Routes>
     </Router>
